@@ -25,9 +25,7 @@ Ext.Loader.syncRequire([
 
 Ext.onReady(function() {
     Deft.Injector.configure({
-        welcomeMessage: {
-            value: 'Welcome to Ext + Deft!'
-        }
+
     });
 
     var viewport = Ext.create('Application.view.Viewport');

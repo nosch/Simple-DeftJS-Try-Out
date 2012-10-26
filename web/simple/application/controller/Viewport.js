@@ -9,21 +9,7 @@
 Ext.define('Application.controller.Viewport', {
     extend: 'Deft.mvc.ViewController',
 
-    requires: [
-        'Application.service.MessageBus'
-    ],
-
-    inject: {
-        message: 'welcomeMessage'
-    },
-
-    control: {
-        centerPanel: true
-    },
-
     init: function() {
         var me = this;
-
-        me.getCenterPanel().setTitle(me.message);
     }
 });
