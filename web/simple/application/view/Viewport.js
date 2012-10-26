@@ -10,7 +10,8 @@ Ext.define('Application.view.Viewport', {
     extend: 'Ext.container.Viewport',
 
     requires: [
-        'Ext.layout.container.Border'
+        'Ext.layout.container.Border',
+        'Second.view.Main'
     ],
 
     controller: 'Application.controller.Viewport',
@@ -48,7 +49,11 @@ Ext.define('Application.view.Viewport', {
                 itemId: 'centerPanel',
                 region: 'center',
                 border: 1,
-                margins: '0 1 1 0'
+                margins: '0 1 1 0',
+                layout: 'fit',
+                items: [{
+                    xtype: 'second.mainview'
+                }]
             }, {
                 xtype: 'panel',
                 itemId: 'southPanel',

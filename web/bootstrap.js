@@ -9,9 +9,10 @@ Ext.Loader.setPath({
     'Ext': './lib/ExtJs/src',
     'Deft': './lib/DeftJs/src/js/Deft',
     // Application namespace
-    'Application': './simple/application'
+    'Application': './simple/application',
     // Module namespaces
-    // ...
+    'First': './simple/module/first',
+    'Second': './simple/module/second'
 });
 
 Ext.Loader.syncRequire([
