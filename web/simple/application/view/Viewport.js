@@ -12,10 +12,7 @@ Ext.define('Application.view.Viewport', {
     requires: [
         'Ext.layout.container.Border',
         'Application.view.Navigation',
-        'Application.view.Center',
-        // Modules
-        'First.view.Main',
-        'Second.view.Main'
+        'Application.view.Center'
     ],
 
     controller: 'Application.controller.Viewport',

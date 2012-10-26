@@ -31,7 +31,7 @@ Ext.define('Application.controller.Navigation', {
     onNavigationButtonClick: function(button) {
         var me = this;
 
-        me.messageBus.fireEvent('moduleChange', button.moduleXtype)
+        me.messageBus.fireEvent('moduleChange', button.moduleView)
     },
 
     onHelpButtonClick: function(button) {

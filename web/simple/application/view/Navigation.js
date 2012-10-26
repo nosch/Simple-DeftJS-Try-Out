@@ -18,12 +18,12 @@ Ext.define('Application.view.Navigation', {
                 xtype: 'button',
                 itemId: 'firstModuleButton',
                 text: 'First Module',
-                moduleXtype: 'first.mainview'
+                moduleView: 'First.view.Main'
             }, {
                 xtype: 'button',
                 itemId: 'secondModuleButton',
                 text: 'Second Module',
-                moduleXtype: 'second.mainview'
+                moduleView: 'Second.view.Main'
             }, {
                 xtype: 'button',
                 itemId: 'helpButton',

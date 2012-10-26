@@ -20,16 +20,19 @@ Ext.define('Application.controller.Center', {
         });
     },
 
-    changeModule: function(moduleXtype) {
-        var me = this;
-
+    changeModule: function(moduleView) {
         var me = this;
         var view = me.getView();
 
         view.removeAll();
 
-        view.add({
-            xtype: moduleXtype
-        });
+        Ext.Loader.require(
+            moduleView,
+            function() {
+                var moduleViewComponent = Ext.create(moduleView);
+
+                view.add(moduleViewComponent);
+            }
+        );
     }
 });
