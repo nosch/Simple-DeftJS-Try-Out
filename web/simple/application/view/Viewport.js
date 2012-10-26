@@ -11,7 +11,8 @@ Ext.define('Application.view.Viewport', {
 
     requires: [
         'Ext.layout.container.Border',
-        'Second.view.Main'
+        'Application.view.Navigation',
+        'Application.view.Center'
     ],
 
     controller: 'Application.controller.Viewport',
@@ -30,10 +31,14 @@ Ext.define('Application.view.Viewport', {
                 xtype: 'panel',
                 itemId: 'northPanel',
                 region: 'north',
-                border: 1,
+                border: 0,
                 margins: 1,
-                height: 87,
-                html: '<h1><img src=\'simple/resource/image/company-group-logo.jpg\' /></h1>'
+                dockedItems: [{
+                    xtype: 'application.navigationview',
+                    itemId: 'navigation',
+                    dock: 'top',
+                    border: 0
+                }]
             }, {
                 xtype: 'panel',
                 itemId: 'westPanel',
@@ -45,15 +50,12 @@ Ext.define('Application.view.Viewport', {
                 border: 1,
                 margins: '0 1 1 1'
             }, {
-                xtype: 'panel',
+                xtype: 'application.centerview',
                 itemId: 'centerPanel',
                 region: 'center',
                 border: 1,
                 margins: '0 1 1 0',
-                layout: 'fit',
-                items: [{
-                    xtype: 'second.mainview'
-                }]
+                layout: 'fit'
             }, {
                 xtype: 'panel',
                 itemId: 'southPanel',
