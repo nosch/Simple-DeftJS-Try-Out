@@ -5,10 +5,6 @@ Ext.define('Second.controller.Main', {
         'Second.service.MessageBus'
     ],
 
-    control: {
-
-    },
-
     init: function() {
         var me = this;
 
