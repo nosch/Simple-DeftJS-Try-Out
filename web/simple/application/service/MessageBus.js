@@ -23,7 +23,7 @@ Ext.define('Application.service.MessageBus', {
          * This not a registration of events
          */
         me.addEvents(
-
+            'moduleChange'
         );
     }
 });

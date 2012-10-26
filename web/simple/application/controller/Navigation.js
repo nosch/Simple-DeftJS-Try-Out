@@ -7,10 +7,10 @@ Ext.define('Application.controller.Navigation', {
 
     control: {
         firstModuleButton: {
-            click: 'onFirstModuleButtonClick'
+            click: 'onNavigationButtonClick'
         },
         secondModuleButton: {
-            click: 'onSecondModuleButtonClick'
+            click: 'onNavigationButtonClick'
         },
         helpButton: {
             click: 'onHelpButtonClick'
@@ -24,14 +24,14 @@ Ext.define('Application.controller.Navigation', {
 
     init: function() {
         var me = this;
+
+        me.messageBus = Application.service.MessageBus;
     },
 
-    onFirstModuleButtonClick: function(button) {
-        console.debug('Load "First" module!');
-    },
+    onNavigationButtonClick: function(button) {
+        var me = this;
 
-    onSecondModuleButtonClick: function(button) {
-        console.debug('Load "Second" module!');
+        me.messageBus.fireEvent('moduleChange', button.moduleXtype)
     },
 
     onHelpButtonClick: function(button) {

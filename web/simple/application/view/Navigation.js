@@ -17,11 +17,13 @@ Ext.define('Application.view.Navigation', {
             items: [{
                 xtype: 'button',
                 itemId: 'firstModuleButton',
-                text: 'First Module'
+                text: 'First Module',
+                moduleXtype: 'first.mainview'
             }, {
                 xtype: 'button',
                 itemId: 'secondModuleButton',
-                text: 'Second Module'
+                text: 'Second Module',
+                moduleXtype: 'second.mainview'
             }, {
                 xtype: 'button',
                 itemId: 'helpButton',
