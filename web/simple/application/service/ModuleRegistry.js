@@ -8,13 +8,15 @@
 Ext.define('Application.service.ModuleRegistry', {
     singleton: true,
 
-    registry: {},
+    registry: null,
 
     constructor: function() {
         var me = this;
         var loaderConfig = Ext.Loader.getConfig();
         var modulePath =  loaderConfig.paths.module;
         var moduleNames = loaderConfig.modules;
+
+        me.registry = {};
 
         if (!moduleNames || 0 === moduleNames.length) {
             return;
