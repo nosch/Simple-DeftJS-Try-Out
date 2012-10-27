@@ -10,12 +10,10 @@ Ext.define('First.Config', {
     extend: 'Application.service.ModuleConfig',
 
     moduleConfig: {
-        first: {
-            title: 'First Module',
-            description: 'The very first module of this application.',
-            view: 'First.view.Main',
-            xtype: 'first.mainview',
-            active: true
-        }
+        title: 'First Module',
+        description: 'The very first module of this application.',
+        view: 'First.view.Main',
+        xtype: 'first.mainview',
+        active: true
     }
 });

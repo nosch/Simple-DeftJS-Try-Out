@@ -30,10 +30,6 @@ Ext.define('Application.controller.Navigation', {
         me.messageBus = Application.service.MessageBus;
 
         Ext.Object.each(me.moduleConfig, function(key, value) {
-            if (!value.active) {
-                return;
-            }
-
             view.insert(position, {
                 xtype: 'button',
                 text: value.title,

@@ -15,9 +15,9 @@ Ext.Loader.setConfig({
         'Deft': './lib/DeftJs/src/js/Deft',
         // Application namespace
         'Application': './simple/application',
-        // Module namespaces
-        'First': './simple/module/first',
-        'Second': './simple/module/second'
+        // Module namespace (module root directory)
+        'module': './simple/module/'
+        // Namespace for each module is set by registry process
     }
 });
 
