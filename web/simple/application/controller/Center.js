@@ -5,7 +5,13 @@ Ext.define('Application.controller.Center', {
         'Application.service.MessageBus'
     ],
 
+    inject: [
+        'moduleConfig'
+    ],
+
     messageBus: null,
+
+    moduleConfig: null,
 
     init: function() {
         var me = this;
@@ -20,16 +26,16 @@ Ext.define('Application.controller.Center', {
         });
     },
 
-    changeModule: function(moduleView) {
+    changeModule: function(moduleName) {
         var me = this;
         var view = me.getView();
 
         view.removeAll();
 
         Ext.Loader.require(
-            moduleView,
+            me.moduleConfig[moduleName].view,
             function() {
-                var moduleViewComponent = Ext.create(moduleView);
+                var moduleViewComponent = Ext.create(me.moduleConfig[moduleName].view);
 
                 view.add(moduleViewComponent);
             }

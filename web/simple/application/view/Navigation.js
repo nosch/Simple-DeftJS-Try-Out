@@ -16,16 +16,6 @@ Ext.define('Application.view.Navigation', {
         Ext.apply(me, {
             items: [{
                 xtype: 'button',
-                itemId: 'firstModuleButton',
-                text: 'First Module',
-                moduleView: 'First.view.Main'
-            }, {
-                xtype: 'button',
-                itemId: 'secondModuleButton',
-                text: 'Second Module',
-                moduleView: 'Second.view.Main'
-            }, {
-                xtype: 'button',
                 itemId: 'helpButton',
                 text: 'Help'
             }, {

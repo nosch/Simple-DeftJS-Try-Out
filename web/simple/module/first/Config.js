@@ -10,7 +10,7 @@ Ext.define('First.Config', {
     extend: 'Application.service.ModuleConfig',
 
     moduleConfig: {
-        employee: {
+        first: {
             title: 'First Module',
             description: 'The very first module of this application.',
             view: 'First.view.Main',

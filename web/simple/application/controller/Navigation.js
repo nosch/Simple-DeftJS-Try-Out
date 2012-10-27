@@ -5,13 +5,11 @@ Ext.define('Application.controller.Navigation', {
         'Application.service.MessageBus'
     ],
 
+    inject: [
+        'moduleConfig'
+    ],
+
     control: {
-        firstModuleButton: {
-            click: 'onNavigationButtonClick'
-        },
-        secondModuleButton: {
-            click: 'onNavigationButtonClick'
-        },
         helpButton: {
             click: 'onHelpButtonClick'
         },
@@ -22,16 +20,40 @@ Ext.define('Application.controller.Navigation', {
 
     messageBus: null,
 
+    moduleConfig: null,
+
     init: function() {
         var me = this;
+        var view = me.getView();
+        var position = 0;
 
         me.messageBus = Application.service.MessageBus;
+
+        Ext.Object.each(me.moduleConfig, function(key, value) {
+            if (!value.active) {
+                return;
+            }
+
+            view.insert(position, {
+                xtype: 'button',
+                text: value.title,
+                tooltip: value.description,
+                tooltipType: 'title',
+                moduleName: key,
+                listeners: {
+                    click: me.onNavigationButtonClick,
+                    scope: me
+                }
+            });
+
+            position ++;
+        });
     },
 
     onNavigationButtonClick: function(button) {
         var me = this;
 
-        me.messageBus.fireEvent('moduleChange', button.moduleView)
+        me.messageBus.fireEvent('moduleChange', button.moduleName);
     },
 
     onHelpButtonClick: function(button) {
