@@ -1,4 +1,4 @@
-Ext.define('First.controller.Main', {
+Ext.define('First.controller.Center', {
     extend: 'Deft.mvc.ViewController',
 
     requires: [
@@ -8,6 +8,6 @@ Ext.define('First.controller.Main', {
     init: function() {
         var me = this;
 
-        console.debug('INIT First.controller.Main');
+        console.debug('INIT First.controller.Center');
     }
 });

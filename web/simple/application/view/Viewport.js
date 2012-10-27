@@ -19,14 +19,13 @@ Ext.define('Application.view.Viewport', {
 
     layout: 'border',
 
-    style: {
-        backgroundColor: 'white'
-    },
-
     initComponent: function() {
         var me = this;
 
         Ext.apply(me, {
+            style: {
+                background: 'white'
+            },
             items: [{
                 xtype: 'panel',
                 itemId: 'northPanel',
@@ -40,6 +39,7 @@ Ext.define('Application.view.Viewport', {
                     border: 0
                 }]
             }, {
+                title: 'Sidebar',
                 xtype: 'panel',
                 itemId: 'westPanel',
                 region: 'west',
