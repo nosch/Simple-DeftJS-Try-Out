@@ -10,7 +10,7 @@ Ext.define('Application.service.ModuleRegistry', {
 
     configSuffix: '.Config',
 
-    moduleConfig: {},
+    registry: {},
 
     constructor: function() {
         var me = this;
@@ -33,15 +33,15 @@ Ext.define('Application.service.ModuleRegistry', {
                 function() {
                     var configObject = Ext.create(configClass);
 
-                    Ext.apply(me.moduleConfig, configObject.getModuleConfig());
+                    Ext.apply(me.registry, configObject.getConfig());
                 }
             );
         });
     },
 
-    getModuleConfig: function() {
+    getRegistry: function() {
         var me = this;
 
-        return me.moduleConfig;
+        return me.registry;
     }
 });

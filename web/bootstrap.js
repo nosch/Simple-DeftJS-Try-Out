@@ -33,7 +33,7 @@ Ext.Loader.syncRequire([
 Ext.onReady(function() {
     Deft.Injector.configure({
         moduleConfig: {
-            value: Application.service.ModuleRegistry.getModuleConfig()
+            value: Application.service.ModuleRegistry.getRegistry()
         }
     });
 
