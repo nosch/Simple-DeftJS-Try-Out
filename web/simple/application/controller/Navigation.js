@@ -1,3 +1,11 @@
+/**
+ * @author Norbert Schmidt <norbert.schmidt@mayflower.com>
+ * @class Application.controller.Navigation
+ * @extends Deft.mvc.ViewController
+ *
+ * ViewController for the applications main navigation bar
+ */
+
 Ext.define('Application.controller.Navigation', {
     extend: 'Deft.mvc.ViewController',
 

@@ -1,3 +1,11 @@
+/**
+ * @author Norbert Schmidt <norbert.schmidt@mayflower.com>
+ * @class Application.controller.Center
+ * @extends Deft.mvc.ViewController
+ *
+ * ViewController for the applications center panel container, the main content area
+ */
+
 Ext.define('Application.controller.Center', {
     extend: 'Deft.mvc.ViewController',
 

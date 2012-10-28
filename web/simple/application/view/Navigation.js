@@ -1,3 +1,11 @@
+/**
+ * @author Norbert Schmidt <norbert.schmidt@mayflower.com>
+ * @class Application.view.Navigation
+ * @extends Ext.toolbar.Toolbar
+ *
+ * Main navigation bar of the application
+ */
+
 Ext.define('Application.view.Navigation', {
     extend: 'Ext.toolbar.Toolbar',
 
