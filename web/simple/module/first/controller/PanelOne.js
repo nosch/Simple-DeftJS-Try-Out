@@ -5,9 +5,15 @@ Ext.define('First.controller.PanelOne', {
         'First.service.MessageBus'
     ],
 
+    inject: [
+        'employeesStore'
+    ],
+
+    employeesStore: null,
+
     init: function() {
         var me = this;
 
-        console.debug('INIT First.controller.PanelOne');
+        me.employeesStore.load();
     }
 });

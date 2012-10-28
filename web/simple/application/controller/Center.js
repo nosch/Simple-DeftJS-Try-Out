@@ -33,8 +33,14 @@ Ext.define('Application.controller.Center', {
         view.removeAll();
 
         Ext.Loader.require(
-            me.moduleConfig[moduleName].view,
+            me.moduleConfig[moduleName].requires,
             function() {
+                if (me.moduleConfig[moduleName].injection) {
+                    Deft.Injector.configure(
+                        me.moduleConfig[moduleName].injection
+                    );
+                }
+
                 var moduleViewComponent = Ext.create(me.moduleConfig[moduleName].view);
 
                 view.add(moduleViewComponent);

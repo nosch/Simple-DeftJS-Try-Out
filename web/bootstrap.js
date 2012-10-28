@@ -31,9 +31,11 @@ Ext.Loader.syncRequire([
 ]);
 
 Ext.onReady(function() {
+    var moduleRegistry = Application.service.ModuleRegistry.getRegistry();
+
     Deft.Injector.configure({
         moduleConfig: {
-            value: Application.service.ModuleRegistry.getRegistry()
+            value: moduleRegistry
         }
     });
 
