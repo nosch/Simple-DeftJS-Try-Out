@@ -6,11 +6,7 @@
  */
 
 Ext.define('Application.service.ModuleConfig', {
-    config: {
-        moduleConfig: {}
-    },
-
-    defaults: {
+    defaultConfig: {
         active: false,
         title: '',
         description: '',
@@ -19,19 +15,32 @@ Ext.define('Application.service.ModuleConfig', {
         requires: [],
         dependencies: {
             allowInjection: false,
-            values: {}
+            values: null
         }
     },
 
-    constructor: function(cgf) {
-        var me = this;
+    config: {
+        moduleConfig: null
+    },
 
-        me.initConfig(cfg);
+    constructor: function(config) {
+        var me = this;
+        var moduleConfig = (config) ? config : me.defaultConfig;
+
+        me.setModuleConfig(moduleConfig);
+
+        me.initConfig(config);
     },
 
     applyModuleConfig: function(moduleConfig) {
         var me = this;
 
-        return Ext.apply({}, moduleConfig, me.defaults);
+        if (Ext.isObject(moduleConfig)) {
+            return Ext.apply(
+                {},
+                moduleConfig,
+                me.defaultConfig
+            );
+        }
     }
 });

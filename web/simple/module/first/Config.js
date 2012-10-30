@@ -9,19 +9,21 @@
 Ext.define('First.Config', {
     extend: 'Application.service.ModuleConfig',
 
-    configuration: {
-        active: true,
-        title: 'First Module',
-        description: 'The very first module of this application.',
-        view: 'First.view.Main',
-        xtype: 'first.mainview',
-        requires: [
-            'First.store.Employees'
-        ],
-        dependencies: {
-            allowInjection: true,
-            values: {
-                employeesStore: 'First.store.Employees'
+    config: {
+        moduleConfig: {
+            active: true,
+            title: 'First Module',
+            description: 'The very first module of this application.',
+            view: 'First.view.Main',
+            xtype: 'first.mainview',
+            requires: [
+                'First.store.Employees'
+            ],
+            dependencies: {
+                allowInjection: true,
+                values: {
+                    employeesStore: 'First.store.Employees'
+                }
             }
         }
     },
@@ -29,6 +31,6 @@ Ext.define('First.Config', {
     constructor: function() {
         var me = this;
 
-        me.setModuleConfig(me.configuration);
+        me.callParent([me.getModuleConfig()]);
     }
 });
