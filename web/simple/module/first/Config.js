@@ -9,18 +9,26 @@
 Ext.define('First.Config', {
     extend: 'Application.service.ModuleConfig',
 
-    moduleConfig: {
+    configuration: {
         active: true,
         title: 'First Module',
         description: 'The very first module of this application.',
         view: 'First.view.Main',
         xtype: 'first.mainview',
         requires: [
-            'First.view.Main',
             'First.store.Employees'
         ],
-        injection: {
-            employeesStore: 'First.store.Employees'
+        dependencies: {
+            allowInjection: true,
+            values: {
+                employeesStore: 'First.store.Employees'
+            }
         }
+    },
+
+    constructor: function() {
+        var me = this;
+
+        me.setModuleConfig(me.configuration);
     }
 });

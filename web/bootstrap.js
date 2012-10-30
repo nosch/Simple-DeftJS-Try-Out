@@ -26,18 +26,7 @@ Ext.Loader.syncRequire([
     'Deft.ioc.Injector',
     'Deft.mixin.Controllable',
     'Deft.mixin.Injectable',
-    'Application.service.ModuleRegistry',
-    'Application.view.Viewport'
+    'Application.SimpleApplication'
 ]);
 
-Ext.onReady(function() {
-    var moduleRegistry = Application.service.ModuleRegistry.getRegistry();
-
-    Deft.Injector.configure({
-        moduleConfig: {
-            value: moduleRegistry
-        }
-    });
-
-    var viewport = Ext.create('Application.view.Viewport');
-});
+var application = Ext.create('Application.SimpleApplication');

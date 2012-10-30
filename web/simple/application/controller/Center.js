@@ -10,21 +10,25 @@ Ext.define('Application.controller.Center', {
     extend: 'Deft.mvc.ViewController',
 
     requires: [
-        'Application.service.MessageBus'
+        'Application.service.MessageBus',
+        'Application.service.ModuleInjector'
     ],
 
     inject: [
-        'moduleConfig'
+        'modulesRegistry'
     ],
 
     messageBus: null,
 
-    moduleConfig: null,
+    moduleInjector: null,
+
+    modulesRegistry: null,
 
     init: function() {
         var me = this;
 
         me.messageBus = Application.service.MessageBus;
+        me.moduleInjector = Application.service.ModuleInjector;
 
         me.messageBus.on({
             moduleChange: {
@@ -37,19 +41,20 @@ Ext.define('Application.controller.Center', {
     changeModule: function(moduleName) {
         var me = this;
         var view = me.getView();
+        var moduleConfig = me.modulesRegistry[moduleName];
+        var requires = Ext.Array.push(
+            [moduleConfig.view],
+            moduleConfig.requires
+        );
 
         view.removeAll();
 
         Ext.Loader.require(
-            me.moduleConfig[moduleName].requires,
+            requires,
             function() {
-                if (me.moduleConfig[moduleName].injection) {
-                    Deft.Injector.configure(
-                        me.moduleConfig[moduleName].injection
-                    );
-                }
+                me.moduleInjector.injection(moduleConfig);
 
-                var moduleViewComponent = Ext.create(me.moduleConfig[moduleName].view);
+                var moduleViewComponent = Ext.create(moduleConfig.view);
 
                 view.add(moduleViewComponent);
             }

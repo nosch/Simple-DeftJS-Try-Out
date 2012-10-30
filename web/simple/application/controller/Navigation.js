@@ -14,7 +14,7 @@ Ext.define('Application.controller.Navigation', {
     ],
 
     inject: [
-        'moduleConfig'
+        'modulesRegistry'
     ],
 
     control: {
@@ -28,7 +28,7 @@ Ext.define('Application.controller.Navigation', {
 
     messageBus: null,
 
-    moduleConfig: null,
+    modulesRegistry: null,
 
     init: function() {
         var me = this;
@@ -37,13 +37,12 @@ Ext.define('Application.controller.Navigation', {
 
         me.messageBus = Application.service.MessageBus;
 
-        Ext.Object.each(me.moduleConfig, function(key, value) {
+        Ext.Object.each(me.modulesRegistry, function(key, value) {
             view.insert(position, {
                 xtype: 'button',
+                moduleName: key,
                 text: value.title,
                 tooltip: value.description,
-                tooltipType: 'title',
-                moduleName: key,
                 listeners: {
                     click: me.onNavigationButtonClick,
                     scope: me

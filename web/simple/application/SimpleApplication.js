@@ -10,18 +10,20 @@ Ext.define('Application.SimpleApplication', {
     extend: 'Deft.mvc.Application',
 
     requires: [
+        'Ext.tip.QuickTipManager',
+        'Application.service.ModuleRegistry',
         'Application.view.Viewport'
     ],
 
     init: function() {
         Deft.Injector.configure({
-            welcomeMessage: {
-                value: 'Welcome to Ext + Deft!'
+            modulesRegistry: {
+                value: Application.service.ModuleRegistry.getRegistry()
             }
         });
 
-        var viewport = Ext.create('Application.view.Viewport');
+        Ext.tip.QuickTipManager.init();
 
-        viewport.show();
+        var viewport = Ext.create('Application.view.Viewport');
     }
 });

@@ -32,7 +32,7 @@ Ext.define('Application.service.ModuleRegistry', {
                 configClass,
                 function() {
                     var configObject = Ext.create(configClass);
-                    var moduleConfig = configObject.getConfig();
+                    var moduleConfig = configObject.getModuleConfig();
 
                     if (true === moduleConfig.active) {
                         me.registry[moduleName] = {};
@@ -42,6 +42,8 @@ Ext.define('Application.service.ModuleRegistry', {
                 }
             );
         });
+
+        console.debug(me.registry);
     },
 
     getRegistry: function() {
