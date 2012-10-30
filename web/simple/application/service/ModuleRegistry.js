@@ -42,8 +42,6 @@ Ext.define('Application.service.ModuleRegistry', {
                 }
             );
         });
-
-        console.debug(me.registry);
     },
 
     getRegistry: function() {
